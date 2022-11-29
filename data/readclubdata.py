@@ -10,5 +10,6 @@ club1 = clubs.fetchone()
 club1img = club1[2]
 img = Image.open("Club Logos/"+club1img)
 img.show()
+print(club1[1])
 
 

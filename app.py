@@ -22,6 +22,10 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///project.db")
 
+@app.route("/")
+def login():
+    return render_template("login.html")
+
 
 # REGISTER
 
