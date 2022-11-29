@@ -20,5 +20,9 @@ for row in csvreader:
     # Some image paths don't need to be trimmed
     else:
         logo_path = row[2]
+    # LOAD DATA
     cursor.execute("INSERT INTO clubs (name, logo) VALUES (?, ?)", [club_name, logo_path])
-    connect.commit()
+# CLEAR DATA
+#cursor.execute("DROP TABLE clubs")
+#cursor.execute("CREATE TABLE clubs (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, logo TEXT NOT NULL)")
+connect.commit()
