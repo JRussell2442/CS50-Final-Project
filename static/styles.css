@@ -8,6 +8,7 @@
     --gradient: linear-gradient(to right, #E29587, #D66D75); /* uigradients: https://uigradients.com/#Netflix */
     --btn-radius: 30px;
 }
+
 .main{
     height: 100%;
     width: 100%;
@@ -18,8 +19,8 @@
 }
 
 .form-box{
-    width: 380px;
-    height: 480px;
+    width: 23.75em;
+    height: 30em;
     position: relative;
     margin: 6% auto;
     background: #fff;
@@ -56,10 +57,20 @@
     transition: 0.5s;
 }
 
+.login-logo{
+    margin: 40px auto;
+    text-align:center;
+}
+
+.login-logo img{
+    width: 120px;
+    margin: 0 12px;
+}
+
 .input-group{
-    top: 180px;
+    top: 11.25em;
     position: absolute;
-    width: 280px;
+    width: 17.5em;
     transition: 0.5s;
 }
 
@@ -96,5 +107,18 @@
     left: 450px;
 }
 
+@media screen and (max-width: 750px) {
 
-/* test */
+    .form-box{
+        width: 19em;
+    }
+
+    .input-field {
+        width: 80%;
+    }
+
+    .submit-btn{
+        width: 68%;
+    }
+
+}
