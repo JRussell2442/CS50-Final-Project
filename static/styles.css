@@ -4,6 +4,9 @@
     font-family: sans-serif;
 }
 
+
+/* CSS for Login/Register Page */
+
 :root{
     --gradient: linear-gradient(to right, #E29587, #D66D75); /* uigradients: https://uigradients.com/#Netflix */
     --btn-radius: 30px;

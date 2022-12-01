@@ -20,24 +20,32 @@
             <nav class="navbar navbar-light bg-light">
                 <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="static/images/Qlogo2.png" alt="logo" height="35">
+                    <img src="static/images/Qlogo.png" alt="logo" height="35">
                 </a>
                 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav me-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Review</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">The Q</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">My Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('homepage') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('review') }}">Review</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('theq') }}">The Q</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('reviewhistory') }}">My Reviews</a></li>
                         </ul>
                         <ul class="navbar-nav ms-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="login.html">Log Out</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log Out</a></li>
                         </ul>
                 </div>
             </nav>
         </div>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary mb-0 text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
 
     </body>
 

@@ -9,6 +9,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
+
 import sqlite3
 from PIL import Image
 import os
@@ -26,6 +27,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+
 connect = sqlite3.connect("project.db", check_same_thread=False)
 cursor = connect.cursor()
 def get_clubs():
@@ -35,13 +37,16 @@ def get_images():
     images = cursor.execute("SELECT logo FROM clubs")
     return images.fetchall()
 
+
 @app.route("/homepage")
 def homepage():
     return render_template("homepage.html", clubdata=zip(get_clubs(), get_images()))
 
+
 @app.route("/")
 def open():
     return redirect("/login")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -59,12 +64,16 @@ def login():
 def register():
     if request.method == "POST":
         if not request.form.get("username"):
+            flash("must input username")
             return redirect("/register")
         elif not request.form.get("password"):
+            flash("must input password")
             return redirect("/register")
         elif request.form.get("password") != request.form.get("confirmation"):
+            flash("passwords do not match")
             return redirect("/register")
         if not "@college.harvard.edu" in request.form.get("email"):
+            flash("must use harvard college email")
             return render_template("/register")
         
         try:
