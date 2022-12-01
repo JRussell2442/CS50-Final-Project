@@ -1,10 +1,14 @@
 import os
+import jinja2
 
-from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+
+import sqlite3
+from PIL import Image
+import os
 
 from helpers import login_required
 
@@ -19,12 +23,18 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///project.db")
+connect = sqlite3.connect("project.db", check_same_thread=False)
+cursor = connect.cursor()
+def get_clubs():
+    clubs = cursor.execute("SELECT name FROM clubs")
+    return clubs.fetchall()
+def get_images():
+    images = cursor.execute("SELECT logo FROM clubs")
+    return images.fetchall()
 
 @app.route("/")
 def login():
-    return render_template("login.html")
+    return render_template("homepage.html", clubdata=zip(get_clubs(), get_images()))
 
 
 # REGISTER
