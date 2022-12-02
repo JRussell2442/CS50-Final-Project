@@ -6,14 +6,6 @@
 
 {% block main %}
 
-<!-- BootStrap search bar -->
-<div class="input-group rounded">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    <span class="input-group-text border-0" id="search-addon">
-      <i class="fas fa-search"></i>
-    </span>
-  </div>
-
 <!-- Bootstrap Table -->
 <table class="table table-striped">
 
@@ -24,16 +16,21 @@
             <th class="text-end">Review</th>
         </tr>
     </thead> -->
-   <tbody>
-        {% for club, logo in clubdata %}
-            <tr>
-                <td class="text-start"><img src="static/logos/{{logo[0]}}"></td>
-                <td class="text-start">{{club[0]}}</td>
-                <td class="text-end"><button action="/review" name="review">Review</button></td></a>
-            </tr>
-        {% endfor %}
 
-    </tbody>
+    <form action="/review" method="post" class="input-group" id="login">
+        <tbody>
+            {% for club, logo in clubdata %}
+                <tr>
+                    <td class="text-start"><img src="static/logos/{{logo[0]}}"></td>
+                    <td class="text-start">{{club[0]}}</td>
+                    <input type="hidden" name="club" value="{{club[0]}}">
+                    <td class="text-end"><button type="submit" class="submit-btn">Review</button></td>
+                </tr>
+            {% endfor %}
+    
+        </tbody>
+    </form>
+
+
 </table>
-
 {% endblock %}

@@ -95,7 +95,11 @@ def register():
 
 @app.route('/review', methods=["GET", "POST"])
 def review():
-    return render_template("review.html", clubdata=zip(get_clubs(), get_images()))
+    if request.method == 'POST':
+        club = request.form.get("club")
+        return render_template("form.html", club=club)
+    else:
+        return render_template("review.html", clubdata=zip(get_clubs(), get_images()))
 
 
 # @app.route('/history')
