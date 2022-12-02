@@ -63,18 +63,11 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        if not request.form.get("username"):
-            flash("must input username")
-            return redirect("/register")
-        elif not request.form.get("password"):
-            flash("must input password")
-            return redirect("/register")
         elif request.form.get("password") != request.form.get("confirmation"):
-            flash("passwords do not match")
             return redirect("/register")
+
         if not "@college.harvard.edu" in request.form.get("email"):
-            flash("must use harvard college email")
-            return render_template("/register")
+            return redirect("/register")
         
         try:
             cursor.execute("INSERT INTO users (email, username, hash) VALUES(?, ?, ?)",
@@ -86,15 +79,16 @@ def register():
     return render_template("login.html")
 
 
-# REGISTER
-
-    # Check that email is "---@harvard.college.edu"
-
-    # Return error if username is taken or passwords don't match
-
-    # hash password (finance)
+@app.route('/review')
+def review():
+    return render_template("review.html")
 
 
-# LOGIN
+# @app.route('/history')
+# def history():
+#     return render_template("history.html")
 
-# LOGOUT
+
+@app.route('/theq')
+def theq():
+    return render_template("theq.html")

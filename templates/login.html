@@ -17,8 +17,8 @@
                     <button type="button" class="toggle-btn" onclick="register()">Register</button>
                 </div>
                 <form action="/login" method="post" class="input-group" id="login">
-                    <input autocomplete="off" class="input-field" name="username" placeholder="Username" type="text">
-                    <input autocomplete="off" class="input-field" name="password" placeholder="Password" type="password">
+                    <input autocomplete="off" class="input-field" name="username" placeholder="Username" type="text" required>
+                    <input autocomplete="off" class="input-field" name="password" placeholder="Password" type="password" required>
                     <button type="submit" class="submit-btn">Log In</button>
                 </form>
                 <div class="login-logo">
@@ -26,9 +26,10 @@
                 </div>
                 <form action="/register" method="post" class="input-group" id="register">
                     <input autocomplete="off" class="input-field" name="email" placeholder="Email" type="email">
-                    <input autocomplete="off" class="input-field" name="username" placeholder="Username" type="text">
-                    <input autocomplete="off" class="input-field" name="password" placeholder="Password" type="password">
-                    <input autocomplete="off" class="input-field" name="confirmation" placeholder="Confirm Password" type="password">
+                    <input autocomplete="off" class="input-field" name="username" placeholder="Username" type="text" required>
+                    <input autocomplete="off" class="input-field" name="password" placeholder="Password" type="password" required>
+                    <input autocomplete="off" class="input-field" name="confirmation" placeholder="Confirm Password" type="password" required>
+                    <span id='message'></span>
                     <button type="submit" class="submit-btn">Register</button>
                 </form>
             </div>

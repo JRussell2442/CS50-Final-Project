@@ -27,25 +27,30 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav me-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('homepage') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('review') }}">Review</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('theq') }}">The Q</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('reviewhistory') }}">My Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/homepage">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/review">Review</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/theq">The Q</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="/history">My Reviews</a></li> -->
                         </ul>
                         <ul class="navbar-nav ms-auto mt-2">
                             <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Log Out</a></li>
                         </ul>
                 </div>
             </nav>
+
+            <main class="container-fluid py-5 text-center">
+                {% block main %}{% endblock %}
+            </main>
+            
         </div>
 
-        {% if get_flashed_messages() %}
+        <!-- {% if get_flashed_messages() %}
             <header>
                 <div class="alert alert-primary mb-0 text-center" role="alert">
                     {{ get_flashed_messages() | join(" ") }}
                 </div>
             </header>
-        {% endif %}
+        {% endif %} -->
 
     </body>
 
