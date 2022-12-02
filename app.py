@@ -52,9 +52,12 @@ def open():
 def login():
     if request.method == "POST":
         users = cursor.execute("SELECT username FROM users WHERE username = ?", (request.form.get("username"),)).fetchall()
-        #if len(users) != 1 or not check_password_hash(users[0]["hash"], request.form.get("password")):
-            #return render_template("login.html")
         print(users, file=sys.stderr)
+        if len(users) != 1:
+            return render_template("login.html")
+        hash = cursor.execute("SELECT hash FROM users WHERE username = ?", (request.form.get("username"),)).fetchone()[0]
+        if not check_password_hash(hash, request.form.get("password")):
+            return render_template("login.html")
         session["user_id"] = users[0][0]
         return redirect("/homepage")
     else:
@@ -86,8 +89,9 @@ def register():
     return render_template("login.html")
 
 
-@app.route('/review')
+@app.route('/review', methods=["GET", "POST"])
 def review():
+    
     return render_template("review.html")
 
 
@@ -99,3 +103,13 @@ def review():
 @app.route('/theq')
 def theq():
     return render_template("theq.html")
+
+@app.route("/logout")
+def logout():
+    """Log user out."""
+
+    # Forget any user_id
+    session.clear()
+
+    # Redirect user to login form
+    return redirect("/login")
