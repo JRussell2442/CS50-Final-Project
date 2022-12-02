@@ -62,21 +62,20 @@ def form():
             '''
         # Check if user has already submitted review
         user = session["user_id"]
-        '''
-        if len((cursor.execute("SELECT user FROM reviews WHERE club = ? AND user = ?", user, request.form.get("club"))).fetchall()) > 0:
+        if len(cursor.execute("SELECT user FROM reviews WHERE user = ? AND club = ?", (user, request.form.get("club"))).fetchall()) > 0:
             cursor.execute("UPDATE reviews set social = ?, workload = ?, comp = ?, comment = ? WHERE user = ?", 
             (request.form.get("social"), request.form.get("workload"), request.form.get("comp"), request.form.get("comment"), user))
             connect.commit()
-            '''
             
-        try:
-            cursor.execute("INSERT INTO reviews (user, social, workload, comp, comment, club) VALUES (?, ?, ?, ?, ?, ?)", 
-                (user, request.form.get("social"), request.form.get("workload"), 
-                request.form.get("social"), request.form.get("comment"), request.form.get("club")))
-            connect.commit()
-        except ValueError:
-            return redirect("/form")
-        return redirect("review.html")
+        else:
+            try:
+                cursor.execute("INSERT INTO reviews (user, social, workload, comp, comment, club) VALUES (?, ?, ?, ?, ?, ?)", 
+                    (user, request.form.get("social"), request.form.get("workload"), 
+                    request.form.get("social"), request.form.get("comment"), request.form.get("club")))
+                connect.commit()
+            except ValueError:
+                return redirect("/form")
+        return redirect("/review")
     else:
         return render_template("form.html")
 
@@ -86,7 +85,6 @@ def login():
     if request.method == "POST":
         # Get users
         users = cursor.execute("SELECT username FROM users WHERE username = ?", (request.form.get("username"),)).fetchall()
-        print(users, file=sys.stderr)
         
         # If user doesn't exist
         if len(users) != 1:
