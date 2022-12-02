@@ -17,7 +17,7 @@
         </tr>
     </thead> -->
 
-    <form action="/review" method="post" class="input-group">
+    <form method="post" class="input-group">
         <table class="club-table">
             <thead>
                 <input type="text" placeholder="Search...">
@@ -27,7 +27,8 @@
                     <tr>
                         <td class="text-start"><img src="static/logos/{{logo[0]}}" alt="Club Image" class="club-image"></td>
                         <td class="text-start text-light">{{club[0]}}</td>
-                        <td class="text-end"><button type="submit" class="submit-btn" value="{{club[0]}}" name="club">Review</button></td>
+                        <td class="text-end"><button formaction="/review" type="submit" class="submit-btn" value="{{club[0]}}" name="club">Review</button></td>
+                        <td class="text-end"><button formaction="/theq" type="submit" class="submit-btn" value="{{club[0]}}" name="theq">The Q</button></td>
                     </tr>
                 {% endfor %}
         

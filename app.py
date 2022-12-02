@@ -134,6 +134,7 @@ def register():
 def review():
     if request.method == 'POST':
         club = request.form.get("club")
+
         return render_template("form.html", club=club)
     
     return render_template("review.html", clubdata=zip(get_clubs(), get_images()))
@@ -141,9 +142,19 @@ def review():
 
 
 
-@app.route('/theq')
+# @app.route('/theq')
+# def theq():
+#     return render_template("theq.html")
+
+
+@app.route('/theq', methods=["GET", "POST"])
 def theq():
+    if request.method == 'POST':
+        club = request.form.get("qguide")
+        return render_template("qguide.html", club=club)
+
     return render_template("theq.html")
+
 
 @app.route("/logout")
 def logout():
