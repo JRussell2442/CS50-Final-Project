@@ -50,7 +50,6 @@ def open():
 @app.route("/form", methods=["GET","POST"])
 def form():
     if request.method == "POST":
-        '''
         if not request.form.get("social"):
             return redirect("/form")
         if not request.form.get("workload"):
@@ -59,7 +58,6 @@ def form():
             return redirect("/form")
         if not request.form.get("comment"):
             return redirect("/form")
-            '''
         # Check if user has already submitted review
         user = session["user_id"]
         if len(cursor.execute("SELECT user FROM reviews WHERE user = ? AND club = ?", (user, request.form.get("club"))).fetchall()) > 0:
