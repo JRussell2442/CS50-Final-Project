@@ -49,7 +49,25 @@ def open():
 
 @app.route("/form")
 def form():
-    return render_template("form.html")
+
+    if request.method == "POST":
+        if not request.form.get("social"):
+            return redirect("/review")
+        if not request.form.get("social"):
+            return redirect("/review")
+        if not request.form.get("social"):
+            return redirect("/review")
+        if not request.form.get("social"):
+            return redirect("/review")
+        try:
+            cursor.execute("INSERT INTO reviews (user, social, workload, comp, comment) VALUES(?, ?, ?, ?, ?)", 
+                (session["user_id"], request.form.get("social"), request.form.get("workload"), 
+                request.form.get("social"), request.form.get("comment")))
+            connect.commit()
+        except ValueError:
+            return redirect("/review")
+    else:
+        return render_template("form.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -103,23 +121,13 @@ def register():
 
 @app.route('/review', methods=["GET", "POST"])
 def review():
-    if request.method == "POST":
-        if not request.form.get("social"):
-            return redirect("/review")
-        if not request.form.get("social"):
-            return redirect("/review")
-        if not request.form.get("social"):
-            return redirect("/review")
-        if not request.form.get("social"):
-            return redirect("/review")
-        try:
-            cursor.execute("INSERT INTO reviews (user, social, workload, comp, comment) VALUES(?, ?, ?, ?, ?)", 
-                (session["user_id"], request.form.get("social"), request.form.get("workload"), 
-                request.form.get("social"), request.form.get("comment")))
-            connect.commit()
-        except ValueError:
-            return redirect("/review")
-    return render_template("review.html")
+    if request.method == 'POST':
+        club = request.form.get("club")
+        return render_template("form.html", club=club)
+    
+    return render_template("review.html", clubdata=zip(get_clubs(), get_images()))
+
+
 
 
 @app.route('/theq')
