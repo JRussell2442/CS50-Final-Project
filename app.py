@@ -63,11 +63,18 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        if not request.form.get("username"):
+            return redirect("/register")
+            # return render_template("login.html")
+        elif not request.form.get("password"):
+            return redirect("/register")
+            # return render_template("login.html")
         elif request.form.get("password") != request.form.get("confirmation"):
             return redirect("/register")
-
+            # return render_template("login.html")
         if not "@college.harvard.edu" in request.form.get("email"):
             return redirect("/register")
+            # return render_template("login.html")
         
         try:
             cursor.execute("INSERT INTO users (email, username, hash) VALUES(?, ?, ?)",
