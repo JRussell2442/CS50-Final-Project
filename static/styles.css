@@ -10,6 +10,7 @@
 :root{
     --gradient: linear-gradient(to right, #E29587, #D66D75); /* uigradients: https://uigradients.com/#Netflix */
     --btn-radius: 30px;
+    --white: #fff;
 }
 
 .main{
@@ -115,6 +116,35 @@
 
 .club-image{
     width: 40%
+}
+
+/* Homepage CSS */
+
+.home-row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+
+.home-col{
+    flex-basis: 50%;
+}
+
+.home-heading{
+    color: var(--white);
+    font-size: 6.25em;
+}
+
+.home-sub{
+    color: var(--white);
+    font-size: 3em;
+}
+
+.home-text{
+    color: var(--white);
+    font-size: 0.8em;
+    margin: 2em;
+    line-height: 1em;
 }
 
 @media screen and (max-width: 750px) {
