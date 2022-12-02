@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+<html>
+<body>
 
 {% block title %}
     Review
@@ -10,9 +12,9 @@
 <table class="table table-striped">
     
     <form method="post" class="input-group">
-        <table class="table table-borderless table-hover table-sm">
+        <table id="myTable" class="table table-borderless table-hover table-sm">
             <thead>
-                <input type="text" placeholder="Search...">
+                <input type="text" id="myInput" onkeyup="filter()" placeholder="Search...">
             </thead>
             <tbody>
                 {% for club, logo in clubdata %}
@@ -27,5 +29,29 @@
             </tbody>
         </table>
     </form>
-
+<script>
+    function filter() {
+      // Declare variables 
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        } 
+      }
+    }
+</script>
 {% endblock %}
+</body>
+</html>
