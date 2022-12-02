@@ -47,6 +47,10 @@ def homepage():
 def open():
     return redirect("/login")
 
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
