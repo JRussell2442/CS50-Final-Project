@@ -1,9 +1,18 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Homepage
+    Review
 {% endblock %}
 
 {% block main %}
+
+<h1>CLUBS</h1>
+<body>
+    {% for club, logo in clubdata %}
+    <h2>{{club[0]}}</h2>
+    <img src="static/logos/{{logo[0]}}" class="club-images" alt="club image">
+    <button>Review</button>
+    {% endfor %}
+</body>
 
 {% endblock %}
