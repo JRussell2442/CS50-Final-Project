@@ -47,6 +47,10 @@ def homepage():
 def open():
     return redirect("/login")
 
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -91,8 +95,7 @@ def register():
 
 @app.route('/review', methods=["GET", "POST"])
 def review():
-    
-    return render_template("review.html")
+    return render_template("review.html", clubdata=zip(get_clubs(), get_images()))
 
 
 # @app.route('/history')
