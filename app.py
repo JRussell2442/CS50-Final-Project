@@ -47,25 +47,36 @@ def homepage():
 def open():
     return redirect("/login")
 
-@app.route("/form")
+@app.route("/form", methods=["GET","POST"])
 def form():
-
     if request.method == "POST":
+        '''
         if not request.form.get("social"):
-            return redirect("/review")
-        if not request.form.get("social"):
-            return redirect("/review")
-        if not request.form.get("social"):
-            return redirect("/review")
-        if not request.form.get("social"):
-            return redirect("/review")
+            return redirect("/form")
+        if not request.form.get("workload"):
+            return redirect("/form")
+        if not request.form.get("comp"):
+            return redirect("/form")
+        if not request.form.get("comment"):
+            return redirect("/form")
+            '''
+        # Check if user has already submitted review
+        user = session["user_id"]
+        '''
+        if len((cursor.execute("SELECT user FROM reviews WHERE club = ? AND user = ?", user, request.form.get("club"))).fetchall()) > 0:
+            cursor.execute("UPDATE reviews set social = ?, workload = ?, comp = ?, comment = ? WHERE user = ?", 
+            (request.form.get("social"), request.form.get("workload"), request.form.get("comp"), request.form.get("comment"), user))
+            connect.commit()
+            '''
+            
         try:
-            cursor.execute("INSERT INTO reviews (user, social, workload, comp, comment) VALUES(?, ?, ?, ?, ?)", 
-                (session["user_id"], request.form.get("social"), request.form.get("workload"), 
-                request.form.get("social"), request.form.get("comment")))
+            cursor.execute("INSERT INTO reviews (user, social, workload, comp, comment, club) VALUES (?, ?, ?, ?, ?, ?)", 
+                (user, request.form.get("social"), request.form.get("workload"), 
+                request.form.get("social"), request.form.get("comment"), request.form.get("club")))
             connect.commit()
         except ValueError:
-            return redirect("/review")
+            return redirect("/form")
+        return redirect("review.html")
     else:
         return render_template("form.html")
 
