@@ -17,20 +17,21 @@
         </tr>
     </thead> -->
 
-    <form action="/review" method="post" class="input-group" id="login">
-        <tbody>
-            {% for club, logo in clubdata %}
-                <tr>
-                    <td class="text-start"><img src="static/logos/{{logo[0]}}"></td>
-                    <td class="text-start">{{club[0]}}</td>
-                    <input type="hidden" name="club" value="{{club[0]}}">
-                    <td class="text-end"><button type="submit" class="submit-btn">Review</button></td>
-                </tr>
-            {% endfor %}
-    
-        </tbody>
+    <form action="/review" method="post" class="input-group">
+        <table class="club-table">
+            <thead>
+                <input type="text" placeholder="Search...">
+            </thead>
+            <tbody>
+                {% for club, logo in clubdata %}
+                    <tr>
+                        <td class="text-start"><img src="static/logos/{{logo[0]}}" alt="Club Image" class="club-image"></td>
+                        <td class="text-start text-light">{{club[0]}}</td>
+                        <td class="text-end"><button type="submit" class="submit-btn" value="{{club[0]}}" name="club">Review</button></td>
+                    </tr>
+                {% endfor %}
+        
+            </tbody>
+        </table>
     </form>
-
-
-</table>
 {% endblock %}
