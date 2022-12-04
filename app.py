@@ -66,8 +66,8 @@ def form():
         # Check if user has already submitted review
         user = session["user_id"]
         if len(cursor.execute("SELECT user FROM reviews WHERE user = ? AND club = ?", (user, request.form.get("club"))).fetchall()) > 0:
-            cursor.execute("UPDATE reviews set social = ?, workload = ?, comp = ?, comment = ? WHERE user = ?", 
-            (request.form.get("social"), request.form.get("workload"), request.form.get("comp"), request.form.get("comment"), user))
+            cursor.execute("UPDATE reviews set social = ?, workload = ?, comp = ?, comment = ? WHERE user = ? AND club = ?",
+            (request.form.get("social"), request.form.get("workload"), request.form.get("comp"), request.form.get("comment"), user, request.form.get("club")))
             connect.commit()
             
         else:
