@@ -30,9 +30,13 @@ Session(app)
 # Configure SQL database
 connect = sqlite3.connect("project.db", check_same_thread=False)
 cursor = connect.cursor()
+
+
 def get_clubs():
     clubs = cursor.execute("SELECT name FROM clubs")
     return clubs.fetchall()
+
+
 def get_images():
     images = cursor.execute("SELECT logo FROM clubs")
     return images.fetchall()
@@ -46,6 +50,7 @@ def homepage():
 @app.route("/")
 def open():
     return redirect("/login")
+
 
 @app.route("/form", methods=["GET","POST"])
 def form():
@@ -97,6 +102,7 @@ def login():
     else:
         return render_template("login.html")
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -136,19 +142,16 @@ def review():
     return render_template("review.html", clubdata=zip(get_clubs(), get_images()))
 
 
-
-
-# @app.route('/theq')
-# def theq():
-#     return render_template("theq.html")
-
-
 @app.route('/theq', methods=["GET", "POST"])
 def theq():
     if request.method == 'POST':
-        club = request.form.get("qguide")
-        return render_template("qguide.html", club=club)
-
+        club = request.form.get("theq")
+        reviews = cursor.execute("SELECT AVG(social) as social, AVG(workload) as workload, AVG(comp) as comp FROM reviews WHERE club == ?", (club,)).fetchall()[0]
+        comments = cursor.execute("SELECT comment as comments FROM reviews WHERE club == ?", (club,)).fetchall()
+        if not reviews or not comments:
+            reviews = ["No reviews", "No reviews", "No reviews"]
+            comments = ["No comments"]
+        return render_template("theq.html", club=club, reviews=reviews, comments=comments)
     return render_template("theq.html")
 
 
