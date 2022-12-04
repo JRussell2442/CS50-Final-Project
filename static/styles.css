@@ -195,6 +195,13 @@ tbody:before {
     margin-left: 25%;
 }
 
+/* TheQ CSS */
+
+.theq-heading{
+    color: var(--white);
+    font-size: 2.5em;
+}
+
 @media screen and (max-width: 750px) {
 
     .form-box{
@@ -233,6 +240,27 @@ tbody:before {
         padding: 1px 11.5px 1px 15px;
         height: 2em;
         font-size: 12px;
+    }
+
+    /* Club CSS */
+
+    .club-form-text-title{
+        font-size: 1.5em;
+    }
+    
+    .form-submit-btn{
+        margin-left: 17%;
+        font-size: 0.5em;
+    }
+
+    .form-text{
+        font-size: 0.5em !important;
+    }
+
+    /* The Q CSS */
+
+    .theq-heading{
+        font-size: 1.5em;
     }
 
 }
