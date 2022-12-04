@@ -1,14 +1,33 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Homepage
+    TheQ
 {% endblock %}
 
 {% block main %}
-<h1>{{club}}</h1>
-<h2>Social:{{reviews[0]}}</h2>
+<div class="ratings-table">
+    <table class="table table-borderless table-sm">
+        <thead>
+            <h1 class="theq-heading">{{club}}</h1>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center text-light"><h2><b>Social: </b>{{reviews[0]}}</h2></td>
+            </tr>
+            <tr>
+                <td class="text-center text-light"><h2><b>Workload: </b>{{reviews[1]}}</h2></td>
+            </tr>
+            <tr>
+                <td class="text-center text-light"><h2><b>Comp Difficulty: </b>{{reviews[2]}}</h2></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- <h2>Social:{{reviews[0]}}</h2>
 <h2>Workload:{{reviews[1]}}</h2>
-<h2>Comp Difficulty:{{reviews[2]}}</h2>
+<h2>Comp Difficulty:{{reviews[2]}}</h2> -->
 <h2>Comments:</h2>
 {% for i in range(comments| length) %}
 <h3>{{comments[i][0]}}</h3>
