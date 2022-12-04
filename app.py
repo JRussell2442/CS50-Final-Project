@@ -115,12 +115,12 @@ def register():
         
         # Make sure it's a harvard email
         if not "@college.harvard.edu" in request.form.get("email"):
-            return redirect("/register")
+            return redirect("/register", message="You must log in with a harvard email")
         
         # If username is taken
         if len(cursor.execute("SELECT username FROM users WHERE username = ?",
                             (request.form.get("username"),)).fetchall()) > 0:
-            return redirect("/register")
+            return redirect("/register", message="Username Taken")
         try:
             # Add users
             cursor.execute("INSERT INTO users (email, username, hash) VALUES(?, ?, ?)",

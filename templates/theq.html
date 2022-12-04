@@ -10,13 +10,7 @@
 <h2>Workload:{{reviews[1]}}</h2>
 <h2>Comp Difficulty:{{reviews[2]}}</h2>
 <h2>Comments:</h2>
-{% if (comments| length) > 5 %}
-{% for i in range(5) %}
-<h3>{{comments[i][0]}}</h3>
-{% endfor %}
-{% else %}
 {% for i in range(comments| length) %}
 <h3>{{comments[i][0]}}</h3>
 {% endfor %}
-{% endif %}
 {% endblock %}
