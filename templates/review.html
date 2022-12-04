@@ -3,32 +3,35 @@
 <body>
 
 {% block title %}
-    Review
+    Clubs
 {% endblock %}
 
 {% block main %}
 
 <!-- Bootstrap Table -->
-<table class="table table-striped">
+<div class="table-responsive sm">
+    <table class="table table-striped">
     
-    <form method="post" class="input-group">
-        <table id="myTable" class="table table-borderless table-hover table-sm">
-            <thead>
-                <input type="text" id="myInput" onkeyup="filter()" placeholder="Search...">
-            </thead>
-            <tbody>
-                {% for club, logo in clubdata %}
-                    <tr>
-                        <td class="text-start"><img src="static/logos/{{logo[0]}}" alt="Club Image" class="club-image"></td>
-                        <td class="text-start text-light">{{club[0]}}</td>
-                        <td class="text-end"><button formaction="/review" type="submit" class="submit-btn" value="{{club[0]}}" name="club">Review</button></td>
-                        <td class="text-end"><button formaction="/theq" type="submit" class="submit-btn" value="{{club[0]}}" name="theq">The Q</button></td>
-                    </tr>
-                {% endfor %}
-        
-            </tbody>
-        </table>
-    </form>
+        <form method="post" class="input-group">
+            <table id="myTable" class="table table-borderless table-hover table-sm">
+                <thead>
+                    <input type="text" id="myInput" onkeyup="filter()" placeholder="Search..." class="search">
+                </thead>
+                <tbody>
+                    {% for club, logo in clubdata %}
+                        <tr>
+                            <td class="text-start"><img src="static/logos/{{logo[0]}}" alt="Club Image" class="club-image"></td>
+                            <td class="text-start text-light">{{club[0]}}</td>
+                            <td class="text-end"><button formaction="/review" type="submit" class="submit-btn" value="{{club[0]}}" name="club">Review</button></td>
+                            <td class="text-end"><button formaction="/theq" type="submit" class="submit-btn" value="{{club[0]}}" name="theq">TheQ</button></td>
+                        </tr>
+                    {% endfor %}
+            
+                </tbody>
+            </table>
+        </form>
+</div>
+
 <script>
     function filter() {
       // Declare variables 

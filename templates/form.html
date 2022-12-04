@@ -5,18 +5,81 @@
 {% endblock %}
 
 {% block main %}
-{{ club }}
-<form action="/form" method="post" class="input-group" id="form">
-    <ul>
+
+<form action="/form" method="post" id="form" class="club-form">
+    <div class="form-group mb-3">
+      <label for="exampleFormControlInput1" class="club-form-text-title">You're Reviewing: {{ club }}</label>
+    </div>
         <input type="hidden" name="club" value="{{club}}">
-        <h1>Rating</h1>
-        <li><input name=social type="number" placeholder="social"></li>
-        <li><input name=workload type="number" placeholder="workload"></li>
-        <li><input name=comp type="number" placeholder="comp"></li>
-    </ul>
-    <label for="comment">Comments:</label>
-    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
-    <button type="submit">Submit</button>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group mb-3">
+                    <select class="form-select" aria-label="Default select example" name="social">
+                        <option selected>Select Social Rating</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group mb-3">
+                    <select class="form-select" aria-label="Default select example" name="workload">
+                        <option selected>Select Workload Rating</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <select class="form-select" aria-label="Default select example" name="comp">
+                <option selected>Select Comp Difficulty</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+        </div>
+
+    <div class="form-group mb-2">
+      <!-- <label for="exampleFormControlTextarea1" class="club-form-text">Comments:</label> -->
+      <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="5" placeholder="Comments..."></textarea>
+      <button type="submit" class="submit-btn form-submit-btn" >Submit</button>
+    </div>
 </form>
+
+
+<!-- 
+    {{ club }}
+    
+    <form action="/form" method="post" id="form">
+
+    <div class="split top">
+        <div class="centered">
+            <ul>
+                <input type="hidden" name="club" value="{{club}}">
+                <h1>Rating</h1>
+                <li><input name=social type="number" placeholder="social"></li>
+                <li><input name=workload type="number" placeholder="workload"></li>
+                <li><input name=comp type="number" placeholder="comp"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="split bottom">
+        <label for="comment">Comments:</label>
+        <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+        <button type="submit">Submit</button>
+    </div>
+</form> -->
 
 {% endblock %}

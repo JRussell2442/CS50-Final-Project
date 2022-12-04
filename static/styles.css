@@ -116,9 +116,43 @@
 
 /* club review page css */
 
+.container-fluid{
+    margin-top: 0;
+}
+
 .club-image{
     width: 40%
 }
+
+.table-responsive{
+        overflow:hidden;
+        overflow-y: scroll;
+        height: 100em;
+}
+
+tbody{
+    margin-top: 2em;
+}
+
+tbody:before {
+    line-height: 1em;
+    content: ".";
+    display: block;
+}
+
+.search {
+    border: 1px solid grey;
+    border-radius: var(--btn-radius);
+    height: 2.5em;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background-color: var(--white);
+  }
+
+.search:hover, .search:focus {
+    border: 1.5px solid var(--gradient);
+    background-color: var(--white);
+  }
 
 /* Homepage CSS */
 
@@ -149,6 +183,18 @@
     line-height: 1em;
 }
 
+/* Form CSS */
+
+.club-form-text-title{
+    color: var(--white);
+    font-size: 2.5em;
+}
+
+.form-submit-btn{
+    width: 50%;
+    margin-left: 25%;
+}
+
 @media screen and (max-width: 750px) {
 
     .form-box{
@@ -161,6 +207,32 @@
 
     .submit-btn{
         width: 68%;
+    }
+
+    /* Club Page */
+
+    .club-image{
+        width: 100%
+    }
+
+    .text-start{
+        font-size: 12px;
+    }
+
+    .club-button{
+        width: 85%;
+        padding: 2px 6px;
+        margin: 4px;
+    }
+
+    .text-end{
+        font-size: 12px;
+    }
+
+    .search{
+        padding: 1px 11.5px 1px 15px;
+        height: 2em;
+        font-size: 12px;
     }
 
 }
