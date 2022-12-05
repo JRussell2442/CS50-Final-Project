@@ -31,12 +31,12 @@ Session(app)
 connect = sqlite3.connect("project.db", check_same_thread=False)
 cursor = connect.cursor()
 
-
+# Get club names
 def get_clubs():
     clubs = cursor.execute("SELECT name FROM clubs")
     return clubs.fetchall()
 
-
+# Get club logos
 def get_images():
     images = cursor.execute("SELECT logo FROM clubs")
     return images.fetchall()
@@ -46,7 +46,7 @@ def get_images():
 def homepage():
     return render_template("homepage.html", clubdata=zip(get_clubs(), get_images()))
 
-
+# Open app to login page
 @app.route("/")
 def open():
     return redirect("/login")
@@ -55,14 +55,12 @@ def open():
 @app.route("/form", methods=["GET","POST"])
 def form():
     if request.method == "POST":
-        if not request.form.get("social"):
+        
+        # If missing anything
+        if not (request.form.get("social") and request.form.get("workload") and not request.form.get("comp")
+        and not request.form.get("comment")):
             return redirect("/form")
-        if not request.form.get("workload"):
-            return redirect("/form")
-        if not request.form.get("comp"):
-            return redirect("/form")
-        if not request.form.get("comment"):
-            return redirect("/form")
+        
         # Check if user has already submitted review
         user = session["user_id"]
         if len(cursor.execute("SELECT user FROM reviews WHERE user = ? AND club = ?", (user, request.form.get("club"))).fetchall()) > 0:
@@ -72,6 +70,7 @@ def form():
             
         else:
             try:
+                # Add the new review
                 cursor.execute("INSERT INTO reviews (user, social, workload, comp, comment, club) VALUES (?, ?, ?, ?, ?, ?)", 
                     (user, request.form.get("social"), request.form.get("workload"), 
                     request.form.get("social"), request.form.get("comment"), request.form.get("club")))
@@ -106,11 +105,7 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        if not request.form.get("username"):
-            return redirect("/register")
-        elif not request.form.get("password"):
-            return redirect("/register")
-        elif request.form.get("password") != request.form.get("confirmation"):
+        if not request.form.get("username") or not request.form.get("password") or request.form.get("password") != request.form.get("confirmation"):
             return redirect("/register")
         
         # Make sure it's a harvard email
@@ -146,8 +141,11 @@ def review():
 def theq():
     if request.method == 'POST':
         club = request.form.get("theq")
+        # Get average social, workload, and comp difficulty ratings
         reviews = cursor.execute("SELECT AVG(social) as social, AVG(workload) as workload, AVG(comp) as comp FROM reviews WHERE club == ?", (club,)).fetchall()[0]
+        # Get all comments
         comments = cursor.execute("SELECT comment as comments FROM reviews WHERE club == ?", (club,)).fetchall()
+        # If no reviews, display as such
         if not reviews or not comments:
             reviews = ["No reviews", "No reviews", "No reviews"]
             comments = ["No comments"]
