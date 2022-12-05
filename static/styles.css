@@ -24,6 +24,9 @@
     position: fixed;
 }
 
+.flash{
+    z-index: 1;
+}
 .form-box{
     width: 23.75em;
     height: 30em;
