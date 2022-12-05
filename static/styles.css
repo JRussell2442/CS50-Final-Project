@@ -159,7 +159,13 @@ tbody:before {
 
 /* Homepage CSS */
 
-.home-row{
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* .home-row{
     display: flex;
     height: 88%;
     align-items: center;
@@ -184,7 +190,7 @@ tbody:before {
     font-size: 0.8em;
     margin: 2em;
     line-height: 1em;
-}
+} */
 
 /* Form CSS */
 
