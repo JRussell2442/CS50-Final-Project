@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Homepage
+    Home
 {% endblock %}
 
 {% block main %}
@@ -10,12 +10,12 @@
     <h1>The Club Q</h1>
 </div>
 <div class="homepage-button">
-    <a class="submit-btn" href="#" onclick="toggle()">Learn More</a>
+    <a class="submit-btn" onclick="toggle()">Learn More</a>
 </div>
 <div id="popup">
-    <img alt="QGuide" src="images/miniQlogo.png" class="minilogo">
-    <p><br>The Club Q is essentially a q guide for clubs, allowing you to rate and view the Harvard clubs of your choice.<br><br>You can submit the review form as many times as you like for any given club, but be aware that only your most recent ratings and comments will be included in the guide.<br><br>Click on the 'Clubs' tab in the drop-down navigation menu to get started.</p>
-    <a class="submit-btn close-button" href="#" onclick="toggle()">Close</a>
+    <img alt="QGuide" src="static/images/miniQlogo.png" class="minilogo">
+    <p><br>The Club Q allows you to rate and view the Harvard clubs of your choice.<br><br>You can submit the review form as many times as you like for any given club, but be aware that only your most recent ratings and comments will be included in the guide.<br><br>Click on the 'Clubs' tab in the drop-down navigation menu to get started.</p>
+    <a class="submit-btn close-button" onclick="toggle()">Close</a>
 </div>
 
 <script>
