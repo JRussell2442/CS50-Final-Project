@@ -17,46 +17,19 @@
             <div class="form-box">
                 <div class="button-box">
                     <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                    <a href="login.html"></a><button type="button" class="toggle-btn">Log In</button></a>
+                    <a href="register.html"><button type="button" class="toggle-btn">Register</button></a>
+                </div>
+                <div class="login-logo">
+                    <img src="static/images/Qlogo.png" alt="logo">
                 </div>
                 <form action="/login" method="post" class="input-group" id="login">
                     <input autocomplete="off" class="input-field" name="username" placeholder="Username" type="text" required>
                     <input autocomplete="off" class="input-field" name="password" placeholder="Password" type="password" required>
                     <button type="submit" class="submit-btn">Log In</button>
                 </form>
-                <div class="login-logo">
-                    <img src="static/images/Qlogo.png" alt="logo">
-                </div>
-                <form action="/register" method="post" class="input-group" id="register">
-                    <input autocomplete="off" id="email" class="input-field" name="email" placeholder="Email" type="email" pattern="">
-                    <input autocomplete="off" id="username" class="input-field" name="username" placeholder="Username" type="text" required>
-                    <input autocomplete="off" id="password" class="input-field" name="password" placeholder="Password" type="password" required>
-                    <input autocomplete="off" id="confirmation" class="input-field" name="confirmation" placeholder="Confirm Password" type="password" required>
-                    <span id='message'></span>
-                    <button type="submit" class="submit-btn">Register</button>
-                </form>
             </div>
         </div>
     </body>
-
-    <script>
-        var x = document.getElementById("login");
-        var y = document.getElementById("register");
-        var z = document.getElementById("btn");
-
-        function register(){
-            x.style.left = "-25em";
-            y.style.left = "3.125em";
-            z.style.left = "6.875em";
-        }
-
-        function login(){
-            x.style.left = "3.125em";
-            y.style.left = "28.125em";
-            z.style.left = "0";
-        }
-        
-    </script>
 
 </html>
