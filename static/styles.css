@@ -125,9 +125,9 @@
 }
 
 .table-responsive{
-        overflow:hidden;
-        overflow-y: scroll;
-        height: 100em;
+    overflow:hidden;
+    overflow-y: scroll;
+    height: 100em;
 }
 
 tbody{
@@ -202,6 +202,13 @@ tbody:before {
     font-size: 2.5em;
 }
 
+.comments-table{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 18em;
+    border: 1px solid var(--white);
+}
+
 @media screen and (max-width: 750px) {
 
     .form-box{
@@ -261,6 +268,14 @@ tbody:before {
 
     .theq-heading{
         font-size: 1.5em;
+    }
+
+    .comments-table{
+        height: 15em;
+    }
+
+    .comments{
+        font-size: 12px;
     }
 
 }

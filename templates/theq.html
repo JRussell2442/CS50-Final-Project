@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
+
 <div class="ratings-table">
     <table class="table table-borderless table-sm">
         <thead>
@@ -24,12 +25,19 @@
     </table>
 </div>
 
+<div class="comments-table">
+    <table class="table table-bordered table-dark table-responsive-md table-hover">
+        <thead>
+            <h2 class="text-light"><b>Comments:</b></h2>
+        </thead>
+        <tbody>
+            {% for i in range(comments | length) %}
+            <tr>
+                <td class="text-center text-light comments">{{comments[i][0]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
-<!-- <h2>Social:{{reviews[0]}}</h2>
-<h2>Workload:{{reviews[1]}}</h2>
-<h2>Comp Difficulty:{{reviews[2]}}</h2> -->
-<h2>Comments:</h2>
-{% for i in range(comments| length) %}
-<h3>{{comments[i][0]}}</h3>
-{% endfor %}
 {% endblock %}
