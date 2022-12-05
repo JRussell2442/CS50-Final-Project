@@ -16,7 +16,7 @@
 .main{
     height: 100%;
     width: 100%;
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url('images/background.png');
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('images/background.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -105,7 +105,13 @@
     border: 0;
     outline: none;
     border-radius: var(--btn-radius);
+    transition: 0.6s ease;
+    text-decoration: none;
+    color: #000;
+}
 
+.submit-btn:hover{
+    color: var(--white);
 }
 
 #login{
@@ -128,7 +134,7 @@
 }
 
 .table-responsive{
-    overflow:hidden;
+    overflow: hidden;
     overflow-y: scroll;
     height: 100em;
 }
@@ -143,13 +149,14 @@ tbody:before {
     display: block;
 }
 
-.search {
+.search{
     border: 1px solid grey;
     border-radius: var(--btn-radius);
     height: 2.5em;
     padding: 2px 23px 2px 30px;
     outline: 0;
     background-color: var(--white);
+    transition: 0.5s ease;
   }
 
 .search:hover, .search:focus {
@@ -164,33 +171,48 @@ tbody:before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-/* .home-row{
-    display: flex;
-    height: 88%;
-    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-.home-col{
-    flex-basis: 50%;
-}
-
-.home-heading{
+.title h1{
     color: var(--white);
-    font-size: 6.25em;
+    font-size: 4rem;
 }
 
-.home-sub{
-    color: var(--white);
-    font-size: 3em;
+.homepage-button{
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.home-text{
-    color: var(--white);
-    font-size: 0.8em;
-    margin: 2em;
-    line-height: 1em;
-} */
+#popup{
+    top: 40%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    width: 30em;
+    padding: 2em;
+    box-shadow: 0, 5px, 30px, rgba(0,0,0,0.3);
+    background: var(--white);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.close-button{
+    width: 7em;
+    left: 50%;
+}
+
+#popup.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+    top: 50%;
+}
+
 
 /* Form CSS */
 
@@ -200,8 +222,8 @@ tbody:before {
 }
 
 .form-submit-btn{
-    width: 50%;
-    margin-left: 25%;
+    width: 25%;
+    margin-left: 37.5%;
 }
 
 /* TheQ CSS */
@@ -258,10 +280,10 @@ tbody:before {
         font-size: 12px;
     }
 
-    /* Club CSS */
+    /* Club Form CSS */
 
     .club-form-text-title{
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
     
     .form-submit-btn{
@@ -276,15 +298,43 @@ tbody:before {
     /* The Q CSS */
 
     .theq-heading{
-        font-size: 1.5em;
+        font-size: 1.2em;
+        margin: 0;
     }
 
     .comments-table{
-        height: 15em;
+        height: 7.2em;
     }
 
     .comments{
         font-size: 12px;
+    }
+
+    .theq-text{
+        margin: 0;
+        font-size: 1em;
+    }
+
+    /* Homepage CSS */
+    
+    .title h1{
+        font-size: 1.8rem;
+    }
+    
+    .homepage-button{
+        font-size: 0.75em;
+        width: 60%;
+        left: 52%;
+    }
+    
+    #popup{
+        width: 18em;
+        padding: 0.7em;
+    }
+
+    .close-button{
+        width: 40%;
+        font-size: 0.75em;
     }
 
 }

@@ -13,27 +13,27 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-center text-light"><h2><b>Social: </b>{{reviews[0]}}</h2></td>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Social: </b>{{reviews[0]}}</h2></td>
             </tr>
             <tr>
-                <td class="text-center text-light"><h2><b>Workload: </b>{{reviews[1]}}</h2></td>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Workload: </b>{{reviews[1]}}</h2></td>
             </tr>
             <tr>
-                <td class="text-center text-light"><h2><b>Comp Difficulty: </b>{{reviews[2]}}</h2></td>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Comp Difficulty: </b>{{reviews[2]}}</h2></td>
             </tr>
         </tbody>
     </table>
 </div>
 
 <div class="comments-table">
-    <table class="table table-bordered table-dark table-responsive-md table-hover">
+    <table class="table table-borderless">
         <thead>
-            <h2 class="text-light"><b>Comments:</b></h2>
+            <h2 class="text-light theq-text"><b>Comments</b></h2>
         </thead>
         <tbody>
             {% for i in range(comments | length) %}
             <tr>
-                <td class="text-center text-light comments">{{comments[i][0]}}</td>
+                <td class="text-center text-light comments bg-black bg-opacity-25">{{comments[i][0]}}</td>
             </tr>
             {% endfor %}
         </tbody>
