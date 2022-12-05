@@ -56,22 +56,6 @@
             y.style.left = "28.125em";
             z.style.left = "0";
         }
-        var emailfield = document.getElementById("email");
-        emailfield.addEventListener("input", () => {
-        if ("college.harvard.edu" in emailfield == false) {
-            emailfield.setCustomValidity("Email must be a Harvard college email");
-            emailfield.reportValidity();
-        } else { emailfield.setCustomValidity(""); }
-        });
-        
-        var confirmation = document.getElementById("confirmation");
-        var password = document.getElementById("password")
-        confirmation.addEventListener("input", () => {
-        if (confirmation.innerHTML != password) {
-            confirmation.setCustomValidity("Passwords must match");
-            confirmation.reportValidity();
-        } else { confirmation.setCustomValidity(""); }
-        });
         
     </script>
 
