@@ -42,3 +42,5 @@ The Q is the guide, and it shows the average ratings for social, workload and co
 LOG OUT
 The log out button simply logs the user out, rendering the login page.
 
+YOUTUBE VIDEO LINK:
+https://youtu.be/motvdNMYrMY
