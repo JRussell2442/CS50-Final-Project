@@ -310,6 +310,8 @@ tbody:before {
     #popup{
         width: 18em;
         padding: 0.7em;
+        overflow-y: scroll;
+        height: 20em;
     }
 
     .close-button{
