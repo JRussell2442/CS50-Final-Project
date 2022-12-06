@@ -31,7 +31,7 @@
     z-index: 1;
 }
 
-.form-box{
+/* .form-box{
     width: 23.75em;
     height: 30em;
     position: relative;
@@ -40,61 +40,87 @@
     padding: 5px;
     overflow: hidden;
     border-radius: var(--btn-radius);
+} */
+
+.user-login{
+    background: var(--gradient) !important;
+    border-radius: var(--btn-radius) !important;
+    transition: 0.5s;
 }
 
-.button-box{
+.user-login:hover{
+    color: var(--white);
+}
+
+.sign-up{
+    transition: 0.5s;
+}
+
+.sign-up:hover{
+    color: #000 !important;
+}
+
+.username-text{
+    font-size: 15px;
+}
+
+.user-login{
+    font-size: 15px;
+}
+
+/* .button-box{
     width: 200px;
     margin: 35px auto;
     position: relative;
     background: var(--gradient);
-    /* box-shadow: 0 0 20px  #E29587; */
+    box-shadow: 0 0 20px  #E29587;
     border-radius: var(--btn-radius);
-}
+} */
 
-.toggle-btn{
-    padding: 10px 30px;
+/* .toggle-btn{
+    padding: 10px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
-    /* width: 95px; */
+    width: 95px;
     position: relative;
-    /* border-radius: var(--btn-radius); */
+    border-radius: var(--btn-radius);
     transition: 0.3s;
-}
+} */
 
-.toggle-btn:hover{
-    /* background: var(--gradient); */
+/* .toggle-btn:hover{
+    background: var(--gradient);
     color: var(--white);
-}
+} */
 
-#btn{
+/* #btn{
     top: 0;
     left: 0;
     position: absolute;
     width: 110px;
     height: var(--full);
     border-radius: var(--btn-radius);
-}
+} */
 
-.login-logo{
-    margin: 40px auto;
-    text-align:center;
-}
+/* .login-logo{
+    margin: 20px auto;
+    text-align: center;
+} */
 
-.login-logo img{
-    width: 120px;
+/* .login-logo img{
+    width: 100px;
     margin: 0 var(--small-font);
-}
+} */
 
-.input-group{
+/* .input-group{
     top: 11.25em;
     position: absolute;
     width: 17.5em;
     transition: 0.5s;
-}
+} */
 
-.input-field{
+/* .input-field{
     width: var(--full);
     padding: 10px 0;
     margin: 5px 0;
@@ -104,7 +130,7 @@
     border-bottom: 1px solid #999;
     outline: none;
     background: transparent;
-}
+} */
 
 .submit-btn{
     width: 85%;
@@ -126,13 +152,13 @@
     color: var(--white);
 }
 
-#login{
+/* #login{
     left: 50px;
 }
 
 #register{
     left: 50px;
-}
+} */
 
 
 /* club review page css */
@@ -258,17 +284,30 @@ tbody:before {
 }
 
 @media screen and (max-width: 750px) {
-
+/* 
     .form-box{
-        width: 19em;
+        width: 18em;
+        height: 70%;
+    } */
+
+    .username-text{
+        font-size: 12px;
+    }
+    
+    .user-login{
+        font-size: 12px;
     }
 
-    .input-field {
-        width: 80%;
+    .Qlogo{
+        height: 30px;
     }
+
+    /* .input-field {
+        width: 80%;
+    } */
 
     .submit-btn{
-        width: 68%;
+        width: 48%;
     }
 
     /* Club Page */
