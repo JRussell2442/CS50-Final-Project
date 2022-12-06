@@ -56,14 +56,11 @@ def open():
 @app.route("/form", methods=["GET","POST"])
 def form():
     if request.method == "POST":
-        if not request.form.get("social"):
+        
+        # If any fields are blank
+        if not request.form.get("social") or not request.form.get("workload") or not request.form.get("comp") or not request.form.get("comment"):
             return redirect("/form")
-        if not request.form.get("workload"):
-            return redirect("/form")
-        if not request.form.get("comp"):
-            return redirect("/form")
-        if not request.form.get("comment"):
-            return redirect("/form")
+        
         # Check if user has already submitted review
         user = session["user_id"]
         if len(cursor.execute("SELECT user FROM reviews WHERE user = ? AND club = ?", (user, request.form.get("club"))).fetchall()) > 0:
@@ -110,13 +107,16 @@ def login():
 def register():
     if request.method == "POST":
         # All fields are filled
-        if not request.form.get("username") or not request.form.get("password") or request.form.get("password") != request.form.get("confirmation"):
-            flash("Missing fields", "error")
+        if not request.form.get("username") or not request.form.get("password"):
+            flash("Missing fields")
+            return redirect("/register")
+        elif not request.form.get("password") != request.form.get("confirmation"):
+            flash("Passwords do not match")
             return redirect("/register")
         
         # Make sure it's a harvard email
         if not "@college.harvard.edu" in request.form.get("email"):
-            flash("Must be a Harvard college email")
+            flash("Must be a Harvard College email")
             return redirect("/register")
         
         # If username is taken
@@ -152,8 +152,8 @@ def theq():
         reviews = cursor.execute("SELECT AVG(social) as social, AVG(workload) as workload, AVG(comp) as comp FROM reviews WHERE club == ?", (club,)).fetchall()[0]
         comments = cursor.execute("SELECT comment as comments FROM reviews WHERE club == ?", (club,)).fetchall()
         if not reviews or not comments:
-            reviews = ["No reviews", "No reviews", "No reviews"]
-            comments = ["No comments"]
+            reviews = []
+            comments = []
         return render_template("theq.html", club=club, reviews=reviews, comments=comments)
     return render_template("theq.html")
 

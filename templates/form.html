@@ -15,8 +15,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-group mb-3">
-                    <select class="form-select form-text" aria-label="Default select example" name="social">
-                        <option selected class="form-text">Select Social Rating</option>
+                    <select class="form-select form-text" aria-label="Default select example" name="social" required>
+                        <option value="" selected class="form-text">Select Social Rating</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -27,8 +27,8 @@
             </div>
             <div class="col">
                 <div class="form-group mb-3">
-                    <select class="form-select form-text" aria-label="Default select example" name="workload">
-                        <option selected class="form-text">Select Workload Rating</option>
+                    <select class="form-select form-text" aria-label="Default select example" name="workload" required>
+                        <option value="" selected class="form-text">Select Workload Rating</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -40,8 +40,8 @@
         </div>
 
         <div class="form-group mb-3">
-            <select class="form-select form-text" aria-label="Default select example" name="comp">
-                <option selected>Select Comp Difficulty</option>
+            <select class="form-select form-text" aria-label="Default select example" name="comp" required>
+                <option value="" selected >Select Comp Difficulty</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -51,7 +51,7 @@
         </div>
 
     <div class="form-group mb-2">
-      <textarea class="form-control form-text" id="exampleFormControlTextarea1" name="comment" rows="3.5" placeholder="Comments..."></textarea>
+      <textarea class="form-control form-text" id="exampleFormControlTextarea1" name="comment" rows="3.5" placeholder="Comments..." required></textarea>
       <button type="submit" class="submit-btn form-submit-btn" >Submit</button>
     </div>
 </form>
