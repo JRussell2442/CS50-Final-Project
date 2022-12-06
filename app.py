@@ -130,7 +130,6 @@ def register():
                             (request.form.get("email"), request.form.get("username"),
                             generate_password_hash(request.form.get("password"))))
             connect.commit()
-            flash("Success!")
             return redirect("/login")
         except ValueError:
             return render_template("register.html")
