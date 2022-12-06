@@ -12,6 +12,7 @@
     --full: 100%;
     --half: 50%;
     --small-font: 0.75em;
+    --scroll: scroll;
 }
 
 .main{
@@ -32,7 +33,7 @@
 /* CSS for Login/Register Page */
 
 .main-form{
-    overflow-y: scroll;
+    overflow-y: var(--scroll);
     max-height: 35em;
 }
 
@@ -95,7 +96,7 @@
 
 .table-responsive{
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: var(--scroll);
     height: 100em;
 }
 
@@ -207,7 +208,7 @@ tbody:before {
 
 .comments-table{
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: var(--scroll);
     height: 18em;
     border: 1px solid var(--white);
 }
@@ -215,11 +216,11 @@ tbody:before {
 @media screen and (max-width: 750px) {
 
     .username-text{
-        font-size: 12px;
+        font-size: var(--small-font);
     }
     
     .user-login{
-        font-size: 12px;
+        font-size: var(--small-font);
     }
 
     .Qlogo{
@@ -304,13 +305,13 @@ tbody:before {
     }
 
     .open-button{
-        font-size: 12px;
+        font-size: var(--small-font);
     }
     
     #popup{
         width: 18em;
         padding: 0.7em;
-        overflow-y: scroll;
+        overflow-y: var(--scroll);
         height: 20em;
     }
 
