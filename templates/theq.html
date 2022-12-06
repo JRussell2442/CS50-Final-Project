@@ -13,13 +13,13 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-center text-light"><h2 class="theq-text"><b>Social: </b>{{reviews[0]}}</h2></td>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Social: </b>{{'%0.2f'| format(reviews[0]|float)}}</h2></td>
             </tr>
             <tr>
-                <td class="text-center text-light"><h2 class="theq-text"><b>Workload: </b>{{reviews[1]}}</h2></td>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Workload: </b>{{'%0.2f'| format(reviews[1]|float)}}</h2></td>
             </tr>
             <tr>
-                <td class="text-center text-light"><h2 class="theq-text"><b>Comp Difficulty: </b>{{reviews[2]}}</h2></td>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Comp Difficulty: </b>{{'%0.2f'| format(reviews[2]|float)}}</h2></td>
             </tr>
         </tbody>
     </table>

@@ -4,8 +4,6 @@
     font-family: sans-serif;
 }
 
-/* CSS for Login/Register Page */
-
 :root{
     --gradient: linear-gradient(to right, #E29587, #D66D75); /* uigradients: https://uigradients.com/#Netflix */
     --btn-radius: 30px;
@@ -31,16 +29,12 @@
     color:red;
 }
 
-/* .form-box{
-    width: 23.75em;
-    height: 30em;
-    position: relative;
-    margin: 6% auto;
-    background: var(--background-grey);
-    padding: 5px;
-    overflow: hidden;
-    border-radius: var(--btn-radius);
-} */
+/* CSS for Login/Register Page */
+
+.main-form{
+    overflow-y: scroll;
+    max-height: 35em;
+}
 
 .user-login{
     background: var(--gradient) !important;
@@ -68,70 +62,6 @@
     font-size: 15px;
 }
 
-/* .button-box{
-    width: 200px;
-    margin: 35px auto;
-    position: relative;
-    background: var(--gradient);
-    box-shadow: 0 0 20px  #E29587;
-    border-radius: var(--btn-radius);
-} */
-
-/* .toggle-btn{
-    padding: 10px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    width: 95px;
-    position: relative;
-    border-radius: var(--btn-radius);
-    transition: 0.3s;
-} */
-
-/* .toggle-btn:hover{
-    background: var(--gradient);
-    color: var(--white);
-} */
-
-/* #btn{
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 110px;
-    height: var(--full);
-    border-radius: var(--btn-radius);
-} */
-
-/* .login-logo{
-    margin: 20px auto;
-    text-align: center;
-} */
-
-/* .login-logo img{
-    width: 100px;
-    margin: 0 var(--small-font);
-} */
-
-/* .input-group{
-    top: 11.25em;
-    position: absolute;
-    width: 17.5em;
-    transition: 0.5s;
-} */
-
-/* .input-field{
-    width: var(--full);
-    padding: 10px 0;
-    margin: 5px 0;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background: transparent;
-} */
-
 .submit-btn{
     width: 85%;
     padding: 10px 30px;
@@ -151,14 +81,6 @@
 .submit-btn:hover{
     color: var(--white);
 }
-
-/* #login{
-    left: 50px;
-}
-
-#register{
-    left: 50px;
-} */
 
 
 /* club review page css */
@@ -245,6 +167,13 @@ tbody:before {
     left: 50%;
 }
 
+.open-button{
+    background: var(--gradient);
+    color: var(--white);
+    border-radius: var(--btn-radius);
+    font-size: 1em;
+}
+
 .minilogo{
     width: 15%;
 }
@@ -284,11 +213,6 @@ tbody:before {
 }
 
 @media screen and (max-width: 750px) {
-/* 
-    .form-box{
-        width: 18em;
-        height: 70%;
-    } */
 
     .username-text{
         font-size: 12px;
@@ -301,10 +225,6 @@ tbody:before {
     .Qlogo{
         height: 30px;
     }
-
-    /* .input-field {
-        width: 80%;
-    } */
 
     .submit-btn{
         width: 48%;
@@ -374,17 +294,17 @@ tbody:before {
     /* Homepage CSS */
     
     .title h1{
-        font-size: 1.8rem;
+        font-size: 3rem;
     }
     
     .homepage-button{
-        font-size: 0.75em;
         width: var(--half);
         display: block;
-        margin: 0 auto;
-        padding: 0 auto;
-        left: 53%;
-        top: 60%;
+        top: 70% !important;
+    }
+
+    .open-button{
+        font-size: 12px;
     }
     
     #popup{
@@ -395,6 +315,10 @@ tbody:before {
     .close-button{
         width: 40%;
         font-size: var(--small-font);
+    }
+
+    .small-text-prompt{
+        font-size: 10px;
     }
 
 }
