@@ -1,6 +1,9 @@
+Clubs.csv is a list of club names and logos, taken via web scraping from the SOCO website. 
+images are the custom images we used for our site (our logo), and logos are the club logos from the SOCO website, taken via web scraping.
+
 project.db:
 This is the SQL database file for clubs, reviews, and users. 
-Clubs consists of the club names and logos, which were taken directly from the SOCO website via web scraping. Club logos in the table are represented by the filepath which corresponds to the image locations within this project (the logos are saved in a folder).
+Clubs consists of the club names and logos in Clubs.csv. Club logos in the table are represented by the filepath which corresponds to the image locations within this project (the logos are saved in a folder).
 Users holds all the user data for registered users so that they can log in once registered. It consists of the user emails, usernames, and password (as a hash of the password).
 Reviews holds all of the reviews made by any user logged in to the site. Each entry has the user name and club name, since these must be kept track of in order that each user can only review each club once, and so that we can query all the reviews for a given club. The club review data itself -- numerical ratings for social, workload, and comp difficulty, as well as open text comments -- are also included in this table.
 
