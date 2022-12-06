@@ -106,6 +106,7 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        # All fields are filled
         if not request.form.get("username") or not request.form.get("password") or request.form.get("password") != request.form.get("confirmation"):
             return redirect("/register")
         
