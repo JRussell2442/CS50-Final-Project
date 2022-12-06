@@ -92,12 +92,14 @@ def login():
         
         # If user doesn't exist
         if len(users) != 1:
-            return render_template("login.html")
+            flash("User does not exist", "error")
+            return redirect("/login")
         hash = cursor.execute("SELECT hash FROM users WHERE username = ?", (request.form.get("username"),)).fetchone()[0]
         
         # If password is wrong
         if not check_password_hash(hash, request.form.get("password")):
-            return render_template("login.html")
+            flash("Incorrect password")
+            return redirect("/login")
         session["user_id"] = users[0][0]
         return redirect("/homepage")
     else:
@@ -107,20 +109,20 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        if not request.form.get("username"):
-            return redirect("/register")
-        elif not request.form.get("password"):
-            return redirect("/register")
-        elif request.form.get("password") != request.form.get("confirmation"):
+        # All fields are filled
+        if not request.form.get("username") or not request.form.get("password") or request.form.get("password") != request.form.get("confirmation"):
+            flash("Missing fields", "error")
             return redirect("/register")
         
         # Make sure it's a harvard email
         if not "@college.harvard.edu" in request.form.get("email"):
+            flash("Must be a Harvard college email")
             return redirect("/register")
         
         # If username is taken
         if len(cursor.execute("SELECT username FROM users WHERE username = ?",
                             (request.form.get("username"),)).fetchall()) > 0:
+            flash("Username is taken")
             return redirect("/register")
         try:
             # Add users
@@ -129,8 +131,7 @@ def register():
                             generate_password_hash(request.form.get("password"))))
             connect.commit()
         except ValueError:
-            return redirect("/register")
-            
+            return render_template("register.html")
     return render_template("register.html")
 
 
