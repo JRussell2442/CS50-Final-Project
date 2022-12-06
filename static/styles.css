@@ -27,8 +27,8 @@
     position: fixed;
 }
 
-.flash{
-    z-index: 1;
+.error{
+    color:red;
 }
 
 .form-box{
