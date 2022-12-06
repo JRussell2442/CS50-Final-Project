@@ -12,6 +12,7 @@
             <h1 class="theq-heading">{{club}}</h1>
         </thead>
         <tbody>
+            {% if reviews | length > 0 %}
             <tr>
                 <td class="text-center text-light"><h2 class="theq-text"><b>Social: </b>{{'%0.2f'| format(reviews[0]|float)}}</h2></td>
             </tr>
@@ -21,6 +22,17 @@
             <tr>
                 <td class="text-center text-light"><h2 class="theq-text"><b>Comp Difficulty: </b>{{'%0.2f'| format(reviews[2]|float)}}</h2></td>
             </tr>
+            {% else %}
+            <tr>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Social: </b>No Reviews Yet</h2></td>
+            </tr>
+            <tr>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Workload: </b>No Reviews Yet</h2></td>
+            </tr>
+            <tr>
+                <td class="text-center text-light"><h2 class="theq-text"><b>Comp Difficulty: </b>No Reviews Yet</h2></td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
 </div>
@@ -31,12 +43,13 @@
             <h2 class="text-light theq-text"><b>Comments</b></h2>
         </thead>
         <tbody>
+            {% if comments | length > 0 %}
             {% for i in range(comments | length) %}
             <tr>
                 <td class="text-center text-light comments bg-black bg-opacity-25">{{comments[i][0]}}</td>
             </tr>
             {% endfor %}
-        </tbody>
+            {% endif %}
     </table>
 </div>
 
