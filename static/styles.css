@@ -43,10 +43,11 @@
 }
 
 .button-box{
-    width: 220px;
+    width: 200px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px #E29587;
+    background: var(--gradient);
+    /* box-shadow: 0 0 20px  #E29587; */
     border-radius: var(--btn-radius);
 }
 
@@ -56,7 +57,15 @@
     background: transparent;
     border: 0;
     outline: none;
+    /* width: 95px; */
     position: relative;
+    /* border-radius: var(--btn-radius); */
+    transition: 0.3s;
+}
+
+.toggle-btn:hover{
+    /* background: var(--gradient); */
+    color: var(--white);
 }
 
 #btn{
@@ -65,9 +74,7 @@
     position: absolute;
     width: 110px;
     height: var(--full);
-    background: var(--gradient);
     border-radius: var(--btn-radius);
-    transition: 0.5s;
 }
 
 .login-logo{
@@ -124,7 +131,7 @@
 }
 
 #register{
-    left: 450px;
+    left: 50px;
 }
 
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>The Club Q</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+
+        <!-- Icon -->
+        <link href="static/images/miniQlogo.ico" rel="icon">
+
+    </head>
+    <body>
+        <div class="main">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <a href="/login"><button type="button" class="toggle-btn">Log In</button></a>
+                    <a href="/register"><button type="button" class="toggle-btn">Register</button></a>
+                </div>
+                <div class="login-logo">
+                    <img src="static/images/Qlogo.png" alt="logo">
+                </div>
+                <form action="/register" method="post" class="input-group" id="register">
+                    <input autocomplete="off" id="email" class="input-field" name="email" placeholder="Email (must be Harvard College)" type="email" pattern="">
+                    <input autocomplete="off" id="username" class="input-field" name="username" placeholder="Username" type="text" required>
+                    <input autocomplete="off" id="password" class="input-field" name="password" placeholder="Password" type="password" required>
+                    <input autocomplete="off" id="confirmation" class="input-field" name="confirmation" placeholder="Confirm Password (must match)" type="password" required>
+                    <span id='message'></span>
+                    <button type="submit" class="submit-btn">Register</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

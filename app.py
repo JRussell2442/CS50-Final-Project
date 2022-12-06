@@ -126,7 +126,7 @@ def register():
             connect.commit()
         except ValueError:
             return redirect("/register")
-    return render_template("login.html")
+    return render_template("register.html")
 
 
 @app.route('/review', methods=["GET", "POST"])
