@@ -110,7 +110,7 @@ def register():
         if not request.form.get("username") or not request.form.get("password"):
             flash("Missing fields")
             return redirect("/register")
-        elif not request.form.get("password") != request.form.get("confirmation"):
+        elif request.form.get("password") != request.form.get("confirmation"):
             flash("Passwords do not match")
             return redirect("/register")
         
