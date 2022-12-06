@@ -10,7 +10,7 @@ The Club Q is fully responsive, so we recommend that you check out the adaptive 
 Upon opening the project, you will be prompted to login. As you won’t already have an account, it’s a good idea to register by clicking on the ‘register’ button at the bottom of the login form. This will cause the central box to expand, as the registration form page will be rendered in place of the login page. 
  
 REGISTER
-Once on the register page, you can create an account but beware - only an email address with the ‘@harvard.college.edu’ domain will be valid. This was designed so that only students at Harvard College can register for an account. If/when this website does eventually go live, we’ll ensure that only an actual @college.harvard.edu address can be registered, via email confirmation or the like. 
+Once on the register page, you can create an account but beware - only an email address with the ‘@college.harvard.edu’ domain will be valid. This was designed so that only students at Harvard College can register for an account. If/when this website does eventually go live, we’ll ensure that only an actual @college.harvard.edu address can be registered, via email confirmation or the like. 
  
 If you happen to enter an email address that is invalid, you’ll be prompted to try again. You will also find that if a username is already taken (you can test this by trying to sign up with the username ‘1’, which we’ve already registered as an account), you’ll receive an error message and will have to choose a different one. Similarly to the invalid email address or taken username, if your chosen password does not match the confirmation, you’ll have to fix the issue. 
  
