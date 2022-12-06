@@ -91,12 +91,12 @@ def login():
         
         # If user doesn't exist
         if len(users) != 1:
-            return render_template("login.html")
+            return redirect("/login")
         hash = cursor.execute("SELECT hash FROM users WHERE username = ?", (request.form.get("username"),)).fetchone()[0]
         
         # If password is wrong
         if not check_password_hash(hash, request.form.get("password")):
-            return render_template("login.html")
+            return redirect("/login")
         session["user_id"] = users[0][0]
         return redirect("/homepage")
     else:
