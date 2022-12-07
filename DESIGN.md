@@ -16,7 +16,7 @@ layout.html:
 This is the page extended by most pages in the website. It contains the background image as well as the navbar and other global attributes such as the website title and logo.
 
 /register:
-Like in finance, the post method of register is meant to submit a form with entered fields such that a new user can be registered. After confirming that all fields are filled and that a Harvard email is being used, we then need to check if the chosen username is taken by querying the SQL database and checking if the chosen name already exists in the database. If it does, then it will not allow the user to register with that name. If there are no issues with any of the fields, then a SQL INSERT query will add the registered user (email, username, password via hash) into the database
+Like in finance, the post method of register is meant to submit a form with entered fields such that a new user can be registered. After confirming that all fields are filled and that a Harvard email is being used, we then need to check if the chosen username or email are taken by querying the SQL database and checking if the chosen name or email already exists in the database. If it does, then it will not allow the user to register with that name or email. If there are no issues with any of the fields, then a SQL INSERT query will add the registered user (email, username, password via hash) into the database
 
 The webpage for register has <input> fields for the email (type email), username (tyep text), password and password confirmation (both of type password so that they accept text but hide the input as *s). The register button is a submit button for these fields.
 

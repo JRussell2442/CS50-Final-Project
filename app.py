@@ -118,7 +118,12 @@ def register():
         if not "@college.harvard.edu" in request.form.get("email"):
             flash("Must be a Harvard College email")
             return redirect("/register")
-        
+
+        if len(cursor.execute("SELECT email FROM users WHERE email = ?",
+                            (request.form.get("email"),)).fetchall()) > 0:
+            flash("Email is taken")
+            return redirect("/register")
+
         # If username is taken
         if len(cursor.execute("SELECT username FROM users WHERE username = ?",
                             (request.form.get("username"),)).fetchall()) > 0:
